@@ -1,3 +1,5 @@
+defaultNamespace: cis-operator-system
+
 helm:
   releaseName: rancher-cis-benchmark
   repo: https://charts.rancher.io
@@ -7,4 +9,4 @@ helm:
     - rancher-cis-benchmarks-values.yaml
 
 dependsOn:
-  - name: fleet-local-rancher-cis-benchmark-crd
+  - name: rancher-cis-benchmark-crd

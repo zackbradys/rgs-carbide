@@ -1,3 +1,5 @@
+defaultNamespace: cattle-ui-plugin-system
+
 helm:
   releaseName: ui-plugin-operator-crd
   repo: https://charts.rancher.io
@@ -7,4 +9,4 @@ helm:
     - ui-plugin-operator-crd-values.yaml
 
 dependsOn:
-  - name: fleet-local-ui-plugin-operator
+  - name: ui-plugin-operator

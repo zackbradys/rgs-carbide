@@ -1,3 +1,5 @@
+defaultNamespace: cattle-monitoring-system
+
 helm:
   releaseName: rancher-monitoring
   repo: https://charts.rancher.io
@@ -7,4 +9,4 @@ helm:
     - rancher-monitoring-values.yaml
 
 dependsOn:
-  - name: fleet-local-rancher-monitoring-crd
+  - name: rancher-monitoring-crd

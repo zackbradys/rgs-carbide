@@ -1,3 +1,5 @@
+defaultNamespace: carbide-docs-system
+
 helm:
   releaseName: airgapped-docs
   repo: https://rancherfederal.github.io/carbide-charts
