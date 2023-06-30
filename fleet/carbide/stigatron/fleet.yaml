@@ -10,4 +10,4 @@ helm:
     - stigatron-values.yaml
 
 dependsOn:
-  - name: stigatron-ui-stigatron-ui
+  - name: stigatron-ui

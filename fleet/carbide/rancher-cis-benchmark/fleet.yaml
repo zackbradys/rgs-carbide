@@ -10,4 +10,4 @@ helm:
     - rancher-cis-benchmarks-values.yaml
 
 dependsOn:
-  - name: rancher-cis-benchmark-crd-rancher-cis-benchmark-crd
+  - name: rancher-cis-benchmark-crd

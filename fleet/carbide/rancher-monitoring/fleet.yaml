@@ -10,4 +10,4 @@ helm:
     - rancher-monitoring-values.yaml
 
 dependsOn:
-  - name: rancher-monitoring-crd-rancher-monitoring-crd
+  - name: rancher-monitoring-crd
