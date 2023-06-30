@@ -1,4 +1,6 @@
 defaultNamespace: carbide-stigatron-system
+namespace: carbide-stigatron-system
+
 helm:
   releaseName: stigatron
   repo: https://rancherfederal.github.io/carbide-charts
