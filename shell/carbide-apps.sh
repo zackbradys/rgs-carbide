@@ -1,7 +1,6 @@
-curl -#OL carbide-apps.sh | sed -e 's/$DOMAIN/'$DOMAIN'/g' -e 's/$CarbideRegistry/'$CarbideRegistry'/g' | bash
-
 ### Enable Extensions
 kubectl apply -f - <<EOF
+### Enable Extensions
 apiVersion: catalog.cattle.io/v1
 kind: ClusterRepo
 metadata:
@@ -9,6 +8,40 @@ metadata:
 spec:
   gitBranch: main
   gitRepo: https://github.com/rancher/ui-plugin-charts
+---
+### Add Carbide Charts
+apiVersion: catalog.cattle.io/v1
+kind: ClusterRepo
+metadata:
+  name: carbide-charts
+spec:
+  gitBranch: main
+  gitRepo: https://github.com/rancherfederal/carbide-charts
+---
+### Configure Classification Banners
+apiVersion: management.cattle.io/v3
+customized: false
+default: '{}'
+kind: Setting
+metadata:
+  name: ui-banners
+value: '{"loginError":{"message":"","showMessage":"false"},"bannerHeader":{"background":"#007a33","color":"#ffffff","textAlignment":"center","fontWeight":null,"fontStyle":null,"fontSize":"14px","textDecoration":null,"text":"UNCLASSIFIED//FOUO"},"bannerFooter":{"background":"#007a33","color":"#ffffff","textAlignment":"center","fontWeight":null,"fontStyle":null,"fontSize":"14px","textDecoration":null,"text":"UNCLASSIFIED//FOUO"},"bannerConsent":{"background":"#eeeff4","color":"#141419","textAlignment":"center","fontWeight":null,"fontStyle":null,"fontSize":"14px","textDecoration":null,"text":"You
+  are accessing a U.S. Government (USG) Information System (IS) that is provided for
+  USG-authorized use only.\\nBy using this IS (which includes any device attached
+  to this IS), you consent to the following conditions: The USG routinely intercepts
+  and monitors communications on this IS for purposes including, but not limited to,
+  penetration testing, COMSEC monitoring, network operations and defense, personnel
+  misconduct (PM), law enforcement (LE), and counterintelligence (CI) investigations.
+  At any time, the USG may inspect and seize data stored on this IS. Communications
+  using, or data stored on, this IS are not private, are subject to routine monitoring,
+  interception, and search, and may be disclosed or used for any USG-authorized purpose.
+  This IS includes security measures (e.g., authentication and access controls) to
+  protect USG interests--not for your personal benefit or privacy. Notwithstanding
+  the above, using this IS does not constitute consent to PM, LE or CI investigative
+  searching or monitoring of the content of privileged communications, or work product,
+  related to personal representation or services by attorneys, psychotherapists, or
+  clergy, and their assistants. Such communications and work product are private and
+  confidential.\\n See User Agreement for details.","button":"Accept"},"showHeader":"true","showFooter":"true","showConsent":"true"}'
 EOF
 
 ### Add Rancher Chart Repo
@@ -51,6 +84,3 @@ helm upgrade -i airgapped-docs carbide-charts/airgapped-docs -n carbide-docs-sys
 helm upgrade -i stigatron-ui carbide-charts/stigatron-ui -n carbide-stigatron-system --set global.cattle.systemDefaultRegistry=$CarbideRegistry
 
 helm upgrade -i stigatron carbide-charts/stigatron -n carbide-stigatron-system --set global.cattle.systemDefaultRegistry=$CarbideRegistry --set heimdall2.heimdall.rcidf.registry=$CarbideRegistry --set heimdall2.global.cattle.systemDefaultRegistry=$CarbideRegistry
-
-### Configure Classification Banners
-kubectl apply -f https://raw.githubusercontent.com/zackbradys/code-templates/main/k8s/yamls/rancher-banner-ufouo.yaml

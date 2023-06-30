@@ -6,6 +6,3 @@ helm:
   version: 3.0.0
   valuesFiles:
     - rancher-cis-benchmarks-crd-values.yaml
-
-dependsOn:
-  - name:

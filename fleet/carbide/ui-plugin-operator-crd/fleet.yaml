@@ -8,4 +8,4 @@ helm:
     - ui-plugin-operator-crd-values.yaml
 
 dependsOn:
-  - name:
+  - name: ui-plugin-operator-ui-plugin-operator

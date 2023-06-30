@@ -1,14 +1,111 @@
+### Enable Extensions
+apiVersion: catalog.cattle.io/v1
+kind: ClusterRepo
+metadata:
+  name: rancher-ui-plugins
+spec:
+  gitBranch: main
+  gitRepo: https://github.com/rancher/ui-plugin-charts
+---
+### Add Carbide Charts
+apiVersion: catalog.cattle.io/v1
+kind: ClusterRepo
+metadata:
+  name: carbide-charts
+spec:
+  gitBranch: main
+  gitRepo: https://github.com/rancherfederal/carbide-charts
+---
+### Create STIGATRON Namespace
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: carbide-stigatron-system
+  labels:
+    kubernetes.io/metadata.name: carbide-stigatron-system
+---
+### Create STIGATRON License
+apiVersion: v1
+kind: Secret
+metadata:
+  name: stigatron-license
+  namespace: carbide-stigatron-system
+type: Opaque
+data:
+stringData:
+  license: $CarbideLicense
+---
 apiVersion: fleet.cattle.io/v1alpha1
 kind: GitRepo
 metadata:
-  name: airgapped-docs
+  name: ui-plugin-operator
   namespace: fleet-local
 spec:
-  repo: https://github.com/zackbradys/rancher-customer-demos
+  repo: https://github.com/zackbradys/rgs-carbide
   branch: main
-  targetNamespace: carbide-docs-system
+  targetNamespace: cattle-ui-plugin-system
   paths:
-    - /airgapped-docs
+    - /fleet/carbide/ui-plugin-operator
+---
+apiVersion: fleet.cattle.io/v1alpha1
+kind: GitRepo
+metadata:
+  name: ui-plugin-operator-crd
+  namespace: fleet-local
+spec:
+  repo: https://github.com/zackbradys/rgs-carbide
+  branch: main
+  targetNamespace: cattle-ui-plugin-system
+  paths:
+    - /fleet/carbide/ui-plugin-operator-crd
+---
+apiVersion: fleet.cattle.io/v1alpha1
+kind: GitRepo
+metadata:
+  name: rancher-monitoring-crd
+  namespace: fleet-local
+spec:
+  repo: https://github.com/zackbradys/rgs-carbide
+  branch: main
+  targetNamespace: cattle-monitoring-system
+  paths:
+    - /fleet/carbide/rancher-monitoring-crd
+---
+apiVersion: fleet.cattle.io/v1alpha1
+kind: GitRepo
+metadata:
+  name: rancher-monitoring
+  namespace: fleet-local
+spec:
+  repo: https://github.com/zackbradys/rgs-carbide
+  branch: main
+  targetNamespace: cattle-monitoring-system
+  paths:
+    - /fleet/carbide/rancher-monitoring
+---
+apiVersion: fleet.cattle.io/v1alpha1
+kind: GitRepo
+metadata:
+  name: rancher-cis-benchmark-crd
+  namespace: fleet-local
+spec:
+  repo: https://github.com/zackbradys/rgs-carbide
+  branch: main
+  targetNamespace: cis-operator-system
+  paths:
+    - /fleet/carbide/rancher-cis-benchmark-crd
+---
+apiVersion: fleet.cattle.io/v1alpha1
+kind: GitRepo
+metadata:
+  name: rancher-cis-benchmark
+  namespace: fleet-local
+spec:
+  repo: https://github.com/zackbradys/rgs-carbide
+  branch: main
+  targetNamespace: cis-operator-system
+  paths:
+    - /fleet/carbide/rancher-cis-benchmark
 ---
 apiVersion: fleet.cattle.io/v1alpha1
 kind: GitRepo
@@ -16,56 +113,69 @@ metadata:
   name: airgapped-docs
   namespace: fleet-local
 spec:
-  repo: https://github.com/zackbradys/rancher-customer-demos
+  repo: https://github.com/zackbradys/rgs-carbide
   branch: main
   targetNamespace: carbide-docs-system
   paths:
-    - /airgapped-docs
+    - /fleet/carbide/airgapped-docs
 ---
 apiVersion: fleet.cattle.io/v1alpha1
 kind: GitRepo
 metadata:
-  name: airgapped-docs
+  name: stigatron-ui
   namespace: fleet-local
 spec:
-  repo: https://github.com/zackbradys/rancher-customer-demos
+  repo: https://github.com/zackbradys/rgs-carbide
   branch: main
-  targetNamespace: carbide-docs-system
+  targetNamespace: carbide-stigatron-system
   paths:
-    - /airgapped-docs
+    - /fleet/carbide/stigatron-ui
 ---
 apiVersion: fleet.cattle.io/v1alpha1
 kind: GitRepo
 metadata:
-  name: airgapped-docs
+  name: stigatron
   namespace: fleet-local
 spec:
-  repo: https://github.com/zackbradys/rancher-customer-demos
+  repo: https://github.com/zackbradys/rgs-carbide
   branch: main
-  targetNamespace: carbide-docs-system
+  targetNamespace: carbide-stigatron-system
   paths:
-    - /airgapped-docs
+    - /fleet/carbide/stigatron
 ---
-apiVersion: fleet.cattle.io/v1alpha1
-kind: GitRepo
+#apiVersion: fleet.cattle.io/v1alpha1
+#kind: GitRepo
+#metadata:
+#  name: rancher
+#  namespace: fleet-local
+#spec:
+#  repo: https://github.com/zackbradys/rgs-carbide
+#  branch: main
+#  targetNamespace: cattle-system
+#  paths:
+#    - /fleet/carbide/rancher
+#---
+### Configure Classification Banners
+apiVersion: management.cattle.io/v3
+customized: false
+default: '{}'
+kind: Setting
 metadata:
-  name: airgapped-docs
-  namespace: fleet-local
-spec:
-  repo: https://github.com/zackbradys/rancher-customer-demos
-  branch: main
-  targetNamespace: carbide-docs-system
-  paths:
-    - /airgapped-docs
----
-apiVersion: fleet.cattle.io/v1alpha1
-kind: GitRepo
-metadata:
-  name: airgapped-docs
-  namespace: fleet-local
-spec:
-  repo: https://github.com/zackbradys/rancher-customer-demos
-  branch: main
-  targetNamespace: carbide-docs-system
-  paths:
-    - /airgapped-docs
+  name: ui-banners
+value: '{"loginError":{"message":"","showMessage":"false"},"bannerHeader":{"background":"#007a33","color":"#ffffff","textAlignment":"center","fontWeight":null,"fontStyle":null,"fontSize":"14px","textDecoration":null,"text":"UNCLASSIFIED//FOUO"},"bannerFooter":{"background":"#007a33","color":"#ffffff","textAlignment":"center","fontWeight":null,"fontStyle":null,"fontSize":"14px","textDecoration":null,"text":"UNCLASSIFIED//FOUO"},"bannerConsent":{"background":"#eeeff4","color":"#141419","textAlignment":"center","fontWeight":null,"fontStyle":null,"fontSize":"14px","textDecoration":null,"text":"You
+  are accessing a U.S. Government (USG) Information System (IS) that is provided for
+  USG-authorized use only.\\nBy using this IS (which includes any device attached
+  to this IS), you consent to the following conditions: The USG routinely intercepts
+  and monitors communications on this IS for purposes including, but not limited to,
+  penetration testing, COMSEC monitoring, network operations and defense, personnel
+  misconduct (PM), law enforcement (LE), and counterintelligence (CI) investigations.
+  At any time, the USG may inspect and seize data stored on this IS. Communications
+  using, or data stored on, this IS are not private, are subject to routine monitoring,
+  interception, and search, and may be disclosed or used for any USG-authorized purpose.
+  This IS includes security measures (e.g., authentication and access controls) to
+  protect USG interests--not for your personal benefit or privacy. Notwithstanding
+  the above, using this IS does not constitute consent to PM, LE or CI investigative
+  searching or monitoring of the content of privileged communications, or work product,
+  related to personal representation or services by attorneys, psychotherapists, or
+  clergy, and their assistants. Such communications and work product are private and
+  confidential.\\n See User Agreement for details.","button":"Accept"},"showHeader":"true","showFooter":"true","showConsent":"true"}'
