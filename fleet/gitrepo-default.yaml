@@ -1,4 +1,4 @@
-### Enable Extensions
+### Add Rancher Extensions Chart Repo
 apiVersion: catalog.cattle.io/v1
 kind: ClusterRepo
 metadata:
@@ -7,7 +7,7 @@ spec:
   gitBranch: main
   gitRepo: https://github.com/rancher/ui-plugin-charts
 ---
-### Add Carbide Charts
+### Add Rancher Government Carbide Chart Repo
 apiVersion: catalog.cattle.io/v1
 kind: ClusterRepo
 metadata:
@@ -15,25 +15,6 @@ metadata:
 spec:
   gitBranch: main
   gitRepo: https://github.com/rancherfederal/carbide-charts
----
-### Create STIGATRON Namespace
-apiVersion: v1
-kind: Namespace
-metadata:
-  name: carbide-stigatron-system
-  labels:
-    kubernetes.io/metadata.name: carbide-stigatron-system
----
-### Create STIGATRON License
-apiVersion: v1
-kind: Secret
-metadata:
-  name: stigatron-license
-  namespace: carbide-stigatron-system
-type: Opaque
-data:
-stringData:
-  license: $CarbideLicense
 ---
 apiVersion: fleet.cattle.io/v1alpha1
 kind: GitRepo
@@ -43,7 +24,6 @@ metadata:
 spec:
   repo: https://github.com/zackbradys/rgs-carbide
   branch: main
-  targetNamespace: cattle-ui-plugin-system
   paths:
     - /fleet/carbide/ui-plugin-operator
 ---
@@ -55,7 +35,6 @@ metadata:
 spec:
   repo: https://github.com/zackbradys/rgs-carbide
   branch: main
-  targetNamespace: cattle-ui-plugin-system
   paths:
     - /fleet/carbide/ui-plugin-operator-crd
 ---
@@ -67,7 +46,6 @@ metadata:
 spec:
   repo: https://github.com/zackbradys/rgs-carbide
   branch: main
-  targetNamespace: cattle-monitoring-system
   paths:
     - /fleet/carbide/rancher-monitoring-crd
 ---
@@ -79,7 +57,6 @@ metadata:
 spec:
   repo: https://github.com/zackbradys/rgs-carbide
   branch: main
-  targetNamespace: cattle-monitoring-system
   paths:
     - /fleet/carbide/rancher-monitoring
 ---
@@ -91,7 +68,6 @@ metadata:
 spec:
   repo: https://github.com/zackbradys/rgs-carbide
   branch: main
-  targetNamespace: cis-operator-system
   paths:
     - /fleet/carbide/rancher-cis-benchmark-crd
 ---
@@ -103,7 +79,6 @@ metadata:
 spec:
   repo: https://github.com/zackbradys/rgs-carbide
   branch: main
-  targetNamespace: cis-operator-system
   paths:
     - /fleet/carbide/rancher-cis-benchmark
 ---
@@ -115,7 +90,6 @@ metadata:
 spec:
   repo: https://github.com/zackbradys/rgs-carbide
   branch: main
-  targetNamespace: carbide-docs-system
   paths:
     - /fleet/carbide/airgapped-docs
 ---
@@ -127,7 +101,6 @@ metadata:
 spec:
   repo: https://github.com/zackbradys/rgs-carbide
   branch: main
-  targetNamespace: carbide-stigatron-system
   paths:
     - /fleet/carbide/stigatron-ui
 ---
@@ -139,7 +112,6 @@ metadata:
 spec:
   repo: https://github.com/zackbradys/rgs-carbide
   branch: main
-  targetNamespace: carbide-stigatron-system
   paths:
     - /fleet/carbide/stigatron
 ---
@@ -151,7 +123,6 @@ spec:
 #spec:
 #  repo: https://github.com/zackbradys/rgs-carbide
 #  branch: main
-#  targetNamespace: cattle-system
 #  paths:
 #    - /fleet/carbide/rancher
 #---

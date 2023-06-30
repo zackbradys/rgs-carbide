@@ -1,4 +1,4 @@
-### Enable Extensions
+### Add Rancher Extensions Chart Repo
 apiVersion: catalog.cattle.io/v1
 kind: ClusterRepo
 metadata:
@@ -7,7 +7,7 @@ spec:
   gitBranch: main
   gitRepo: https://github.com/rancher/ui-plugin-charts
 ---
-### Add Carbide Charts
+### Add Rancher Government Carbide Chart Repo
 apiVersion: catalog.cattle.io/v1
 kind: ClusterRepo
 metadata:
@@ -15,25 +15,6 @@ metadata:
 spec:
   gitBranch: main
   gitRepo: https://github.com/rancherfederal/carbide-charts
----
-### Create STIGATRON Namespace
-apiVersion: v1
-kind: Namespace
-metadata:
-  name: carbide-stigatron-system
-  labels:
-    kubernetes.io/metadata.name: carbide-stigatron-system
----
-### Create STIGATRON License
-apiVersion: v1
-kind: Secret
-metadata:
-  name: stigatron-license
-  namespace: carbide-stigatron-system
-type: Opaque
-data:
-stringData:
-  license: $CarbideLicense
 ---
 apiVersion: fleet.cattle.io/v1alpha1
 kind: GitRepo
