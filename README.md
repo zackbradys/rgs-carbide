@@ -1,5 +1,5 @@
 ---
-title: Rancher Government Carbide Deployment Guide
+title: Rancher Government Carbide Deployment
 author: Zack Brady - Field Engineer
 contact: zack.brady@rancherfederal.com
 ---
