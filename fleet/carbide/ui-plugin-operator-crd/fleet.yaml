@@ -7,4 +7,4 @@ helm:
     - ui-plugin-operator-crd-values.yaml
 
 dependsOn:
-  - name: fleet-local/ui-plugin-operator
+  - name: fleet-local-ui-plugin-operator

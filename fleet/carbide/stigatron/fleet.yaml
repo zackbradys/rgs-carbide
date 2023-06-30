@@ -7,4 +7,4 @@ helm:
     - stigatron-values.yaml
 
 dependsOn:
-  - name: fleet-local/stigatron-ui
+  - name: fleet-local-stigatron-ui

@@ -7,4 +7,4 @@ helm:
     - rancher-cis-benchmarks-values.yaml
 
 dependsOn:
-  - name: fleet-local/rancher-cis-benchmark-crd
+  - name: fleet-local-rancher-cis-benchmark-crd

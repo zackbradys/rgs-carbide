@@ -7,4 +7,4 @@ helm:
     - rancher-monitoring-values.yaml
 
 dependsOn:
-  - name: fleet-local/rancher-monitoring-crd
+  - name: fleet-local-rancher-monitoring-crd
