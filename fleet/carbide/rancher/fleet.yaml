@@ -1,3 +1,5 @@
+defaultNamespace: cattle-system
+
 helm:
   releaseName: rancher
   repo: https://rancherfederal.github.io/carbide-charts

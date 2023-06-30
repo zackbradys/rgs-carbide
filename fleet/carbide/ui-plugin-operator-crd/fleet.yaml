@@ -1,4 +1,4 @@
-namespace: cattle-ui-plugin-system
+defaultNamespace: cattle-ui-plugin-system
 
 helm:
   releaseName: ui-plugin-operator-crd
