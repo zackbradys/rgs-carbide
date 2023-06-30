@@ -1,8 +1,10 @@
-defaultNamespace:
-helm:
-  releaseName:
-  repo:
-  chart:
-  version:
-  valuesFiles:
-    -
+global:
+  cattle:
+    systemDefaultRegistry: rgcrprod.azurecr.us
+heimdall2:
+  global:
+    cattle:
+      systemDefaultRegistry: rgcrprod.azurecr.us
+  heimdall:
+    rcidf:
+      registry: rgcrprod.azurecr.us

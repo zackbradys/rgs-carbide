@@ -1,8 +1,11 @@
-defaultNamespace:
+defaultNamespace: carbide-stigatron-system
 helm:
-  releaseName:
-  repo:
-  chart:
-  version:
+  releaseName: stigatron
+  repo: https://rancherfederal.github.io/carbide-charts
+  chart: stigatron
+  version: 0.1.46
   valuesFiles:
-    -
+    - stigatron-values.yaml
+
+dependsOn:
+  - name: stigatron-ui-stigatron-ui

@@ -1,8 +1,8 @@
-defaultNamespace:
-helm:
-  releaseName:
-  repo:
-  chart:
-  version:
-  valuesFiles:
-    -
+### ADD YOUR CURRENT RANCHER VALUES HERE
+### helm get values rancher -n cattle-system > rancher-values.yaml
+
+carbide:
+  whitelabel:
+    image: rgcrprod.azurecr.us/carbide/carbide-whitelabel
+rancherImage: rgcrprod.azurecr.us/rancher/rancher
+systemDefaultRegistry: rgcrprod.azurecr.us
