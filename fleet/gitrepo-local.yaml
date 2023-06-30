@@ -33,3 +33,39 @@ spec:
   targetNamespace: carbide-docs-system
   paths:
     - /airgapped-docs
+---
+apiVersion: fleet.cattle.io/v1alpha1
+kind: GitRepo
+metadata:
+  name: airgapped-docs
+  namespace: fleet-local
+spec:
+  repo: https://github.com/zackbradys/rancher-customer-demos
+  branch: main
+  targetNamespace: carbide-docs-system
+  paths:
+    - /airgapped-docs
+---
+apiVersion: fleet.cattle.io/v1alpha1
+kind: GitRepo
+metadata:
+  name: airgapped-docs
+  namespace: fleet-local
+spec:
+  repo: https://github.com/zackbradys/rancher-customer-demos
+  branch: main
+  targetNamespace: carbide-docs-system
+  paths:
+    - /airgapped-docs
+---
+apiVersion: fleet.cattle.io/v1alpha1
+kind: GitRepo
+metadata:
+  name: airgapped-docs
+  namespace: fleet-local
+spec:
+  repo: https://github.com/zackbradys/rancher-customer-demos
+  branch: main
+  targetNamespace: carbide-docs-system
+  paths:
+    - /airgapped-docs

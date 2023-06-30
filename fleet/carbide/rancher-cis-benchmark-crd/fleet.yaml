@@ -1,8 +1,11 @@
-defaultNamespace:
+defaultNamespace: cis-operator-system
 helm:
-  releaseName:
-  repo:
-  chart:
-  version:
+  releaseName: rancher-cis-benchmark-crd
+  repo: https://charts.rancher.io
+  chart: rancher-cis-benchmark-crd
+  version: 3.0.0
   valuesFiles:
-    -
+    - rancher-cis-benchmarks-crd-values.yaml
+
+dependsOn:
+  - name:

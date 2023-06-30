@@ -1,8 +1,11 @@
-defaultNamespace:
+defaultNamespace: cattle-ui-plugin-system
 helm:
-  releaseName:
-  repo:
-  chart:
-  version:
+  releaseName: ui-plugin-operator-crd
+  repo: https://charts.rancher.io
+  chart: ui-plugin-operator-crd
+  version: 102.0.0+up0.2.0
   valuesFiles:
-    -
+    - ui-plugin-operator-crd-values.yaml
+
+dependsOn:
+  - name:
