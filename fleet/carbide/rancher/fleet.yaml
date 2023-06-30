@@ -1,4 +1,4 @@
-defaultNamespace: cattle-system
+namespace: cattle-system
 
 helm:
   releaseName: rancher

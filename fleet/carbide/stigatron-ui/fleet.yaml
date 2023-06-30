@@ -1,4 +1,4 @@
-defaultNamespace: carbide-stigatron-system
+namespace: carbide-stigatron-system
 
 helm:
   releaseName: stigatron-ui

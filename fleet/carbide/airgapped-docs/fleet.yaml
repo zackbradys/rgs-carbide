@@ -1,4 +1,4 @@
-defaultNamespace: carbide-docs-system
+namespace: carbide-docs-system
 
 helm:
   releaseName: airgapped-docs

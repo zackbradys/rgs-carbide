@@ -1,4 +1,4 @@
-defaultNamespace: cattle-ui-plugin-system
+namespace: cattle-ui-plugin-system
 
 helm:
   releaseName: ui-plugin-operator
