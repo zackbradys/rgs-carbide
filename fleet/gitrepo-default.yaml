@@ -1,0 +1,18 @@
+apiVersion: fleet.cattle.io/v1alpha1
+kind: GitRepo
+metadata:
+  name: rancher-demo
+  namespace: fleet-default
+spec:
+  repo: https://github.com/zackbradys/rancher-customer-demos
+  branch: main
+  targetNamespace: rancher-demo
+  paths:
+    - /rancher-demo-app
+  targets:
+    - clusterSelector:
+        matchExpressions:
+          - key: provider.cattle.io
+            operator: NotIn
+            values:
+              - harvester
