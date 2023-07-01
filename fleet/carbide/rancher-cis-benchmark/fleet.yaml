@@ -9,4 +9,4 @@ helm:
     - rancher-cis-benchmarks-values.yaml
 
 dependsOn:
-  - name: benchmark-crd-fleet-carbide-rancher-benchmark-crd
+  - name: benchmark-crd-fleet-carbide-rancher-cis-benchmark-crd
