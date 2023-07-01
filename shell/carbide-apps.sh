@@ -74,6 +74,8 @@ sleep 10
 
 helm upgrade -i rancher-cis-benchmark rancher-charts/rancher-cis-benchmark -n cis-operator-system --version=3.0.0 --set global.cattle.url=https://rancher.$DOMAIN --set global.cattle.systemDefaultRegistry=$CarbideRegistry
 
+sleep 30
+
 ### Install Carbide License
 kubectl create namespace carbide-docs-system
 kubectl create namespace carbide-stigatron-system
