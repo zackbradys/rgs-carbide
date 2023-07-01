@@ -63,7 +63,7 @@ spec:
 apiVersion: fleet.cattle.io/v1alpha1
 kind: GitRepo
 metadata:
-  name: cis-benchmark-crd
+  name: benchmark-crd
   namespace: fleet-local
 spec:
   repo: https://github.com/zackbradys/rgs-carbide
@@ -74,7 +74,7 @@ spec:
 apiVersion: fleet.cattle.io/v1alpha1
 kind: GitRepo
 metadata:
-  name: cis-benchmark
+  name: benchmark
   namespace: fleet-local
 spec:
   repo: https://github.com/zackbradys/rgs-carbide

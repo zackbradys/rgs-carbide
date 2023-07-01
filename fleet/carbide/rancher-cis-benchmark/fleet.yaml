@@ -7,3 +7,6 @@ helm:
   version: 3.0.0
   valuesFiles:
     - rancher-cis-benchmarks-values.yaml
+
+dependsOn:
+  - name: benchmark-crd-fleet-carbide-rancher-benchmark-crd

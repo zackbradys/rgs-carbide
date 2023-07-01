@@ -7,3 +7,6 @@ helm:
   version: 0.1.46
   valuesFiles:
     - stigatron-values.yaml
+
+dependsOn:
+  - name: stigatron-ui-fleet-carbide-stigatron-ui
