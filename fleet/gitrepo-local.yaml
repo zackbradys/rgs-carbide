@@ -19,7 +19,7 @@ spec:
 apiVersion: fleet.cattle.io/v1alpha1
 kind: GitRepo
 metadata:
-  name: ui-plugin-operator
+  name: ui-plugins
   namespace: fleet-local
 spec:
   repo: https://github.com/zackbradys/rgs-carbide
@@ -30,7 +30,7 @@ spec:
 apiVersion: fleet.cattle.io/v1alpha1
 kind: GitRepo
 metadata:
-  name: ui-plugin-operator-crd
+  name: ui-plugin-crd
   namespace: fleet-local
 spec:
   repo: https://github.com/zackbradys/rgs-carbide
@@ -41,7 +41,7 @@ spec:
 apiVersion: fleet.cattle.io/v1alpha1
 kind: GitRepo
 metadata:
-  name: rancher-monitoring-crd
+  name: monitoring-crd
   namespace: fleet-local
 spec:
   repo: https://github.com/zackbradys/rgs-carbide
@@ -52,7 +52,7 @@ spec:
 apiVersion: fleet.cattle.io/v1alpha1
 kind: GitRepo
 metadata:
-  name: rancher-monitoring
+  name: monitoring
   namespace: fleet-local
 spec:
   repo: https://github.com/zackbradys/rgs-carbide
@@ -63,7 +63,7 @@ spec:
 apiVersion: fleet.cattle.io/v1alpha1
 kind: GitRepo
 metadata:
-  name: rancher-cis-benchmark-crd
+  name: cis-benchmark-crd
   namespace: fleet-local
 spec:
   repo: https://github.com/zackbradys/rgs-carbide
@@ -74,7 +74,7 @@ spec:
 apiVersion: fleet.cattle.io/v1alpha1
 kind: GitRepo
 metadata:
-  name: rancher-cis-benchmark
+  name: cis-benchmark
   namespace: fleet-local
 spec:
   repo: https://github.com/zackbradys/rgs-carbide

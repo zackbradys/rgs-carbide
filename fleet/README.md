@@ -1,28 +1,9 @@
 ### Configure Carbide License
 
-In order to deploy Rancher Government Carbide, you must have an existing Carbide License Token. Please apply these YAMLS, before deploying Carbide with Fleet! To do this, replace `$CarbideLicense` with your License Token, then apply the YAMLS, then apply the Fleet command.
+In order to deploy Rancher Government Carbide, you must have an existing Carbide License on the exisiting cluster. Please apply these YAMLS, before deploying Carbide with Fleet! To do this, on each cluster, replace `$CarbideLicense` with your RGS provided License, apply the YAML to each cluster, and then apply the desired Fleet command.
 
 ```bash
-kubectl apply -f - <<EOF
-### Create STIGATRON Namespace
-apiVersion: v1
-kind: Namespace
-metadata:
-  name: carbide-stigatron-system
-  labels:
-    kubernetes.io/metadata.name: carbide-stigatron-system
----
-### Create STIGATRON License
-apiVersion: v1
-kind: Secret
-metadata:
-  name: stigatron-license
-  namespace: carbide-stigatron-system
-type: Opaque
-data:
-stringData:
-  license: $CarbideLicense
-EOF
+kubectl create namespace carbide-stigatron-system && kubectl create secret generic stigatron-license -n carbide-stigatron-system --from-literal=license=$CarbideLicense
 ```
 
 ### Fleet Local
