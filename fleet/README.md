@@ -1,3 +1,5 @@
+## Carbide Deployment with Fleet
+
 ### Configure Carbide License
 
 In order to deploy Rancher Government Carbide, you must have an existing Carbide License on the exisiting cluster. Please apply these YAMLS, before deploying Carbide with Fleet! To do this, on each cluster, replace `$CarbideLicense` with your RGS provided License, apply the YAML to each cluster, and then apply the desired Fleet command.
