@@ -1,5 +1,5 @@
 ---
-title: Rancher Government Carbide Deployment
+title: Rancher Carbide Deployment
 author: Zack Brady - Field Engineer
 contact: zack.brady@ranchergovernment.com
 ---
@@ -26,6 +26,13 @@ A little bit Zack Brady, his history, and what he's done in the industry.
 
 WIP WIP WIP
 
+**Official Docs:** [https://rancherfederal.github.io/carbide-docs/](https://rancherfederal.github.io/carbide-docs/)
+
+**Contributing:** Please utilize GitHubs features such as Issues, Forks, and Pull Requests to contribute!
+
+**Note:** This repository is a work in progress and may change from time to time.
+
+
 ## Fleet Deployment
 
 View the [README](fleet/README.md) for deployment information.
@@ -37,5 +44,3 @@ View the [README](shell/README.md) for deployment information.
 ## K8S YAML Deployment
 
 WIP WIP WIP
-
-View the [README](yaml/README.md) for deployment information.
