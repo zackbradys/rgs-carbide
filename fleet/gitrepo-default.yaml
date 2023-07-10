@@ -1,12 +1,3 @@
-### Add Rancher Extensions Chart Repo
-apiVersion: catalog.cattle.io/v1
-kind: ClusterRepo
-metadata:
-  name: rancher-ui-plugins
-spec:
-  gitBranch: main
-  gitRepo: https://github.com/rancher/ui-plugin-charts
----
 ### Add Rancher Government Carbide Chart Repo
 apiVersion: catalog.cattle.io/v1
 kind: ClusterRepo
@@ -15,34 +6,6 @@ metadata:
 spec:
   gitBranch: main
   gitRepo: https://github.com/rancherfederal/carbide-charts
----
-apiVersion: fleet.cattle.io/v1alpha1
-kind: GitRepo
-metadata:
-  name: ui-plugin
-  namespace: fleet-default
-spec:
-  repo: https://github.com/zackbradys/rgs-carbide
-  branch: main
-  paths:
-    - /fleet/carbide/ui-plugin-operator
-  targets:
-    - name: downstream-clusters
-    - clusterSelector: {}
----
-apiVersion: fleet.cattle.io/v1alpha1
-kind: GitRepo
-metadata:
-  name: ui-plugin-crd
-  namespace: fleet-default
-spec:
-  repo: https://github.com/zackbradys/rgs-carbide
-  branch: main
-  paths:
-    - /fleet/carbide/ui-plugin-operator-crd
-  targets:
-    - name: downstream-clusters
-    - clusterSelector: {}
 ---
 apiVersion: fleet.cattle.io/v1alpha1
 kind: GitRepo
@@ -103,34 +66,6 @@ spec:
 apiVersion: fleet.cattle.io/v1alpha1
 kind: GitRepo
 metadata:
-  name: airgapped-docs
-  namespace: fleet-default
-spec:
-  repo: https://github.com/zackbradys/rgs-carbide
-  branch: main
-  paths:
-    - /fleet/carbide/airgapped-docs
-  targets:
-    - name: downstream-clusters
-    - clusterSelector: {}
----
-apiVersion: fleet.cattle.io/v1alpha1
-kind: GitRepo
-metadata:
-  name: stigatron-ui
-  namespace: fleet-default
-spec:
-  repo: https://github.com/zackbradys/rgs-carbide
-  branch: main
-  paths:
-    - /fleet/carbide/stigatron-ui
-  targets:
-    - name: downstream-clusters
-    - clusterSelector: {}
----
-apiVersion: fleet.cattle.io/v1alpha1
-kind: GitRepo
-metadata:
   name: stigatron
   namespace: fleet-default
 spec:
@@ -141,42 +76,3 @@ spec:
   targets:
     - name: downstream-clusters
     - clusterSelector: {}
----
-#apiVersion: fleet.cattle.io/v1alpha1
-#kind: GitRepo
-#metadata:
-#  name: rancher
-#  namespace: fleet-default
-#spec:
-#  repo: https://github.com/zackbradys/rgs-carbide
-#  branch: main
-#  paths:
-#    - /fleet/carbide/rancher
-#  targets:
-#    - name: downstream-clusters
-#    - clusterSelector: {}
-#---
-### Configure Classification Banners
-apiVersion: management.cattle.io/v3
-customized: false
-default: '{}'
-kind: Setting
-metadata:
-  name: ui-banners
-value: '{"loginError":{"message":"","showMessage":"false"},"bannerHeader":{"background":"#007a33","color":"#ffffff","textAlignment":"center","fontWeight":null,"fontStyle":null,"fontSize":"14px","textDecoration":null,"text":"UNCLASSIFIED//FOUO"},"bannerFooter":{"background":"#007a33","color":"#ffffff","textAlignment":"center","fontWeight":null,"fontStyle":null,"fontSize":"14px","textDecoration":null,"text":"UNCLASSIFIED//FOUO"},"bannerConsent":{"background":"#eeeff4","color":"#141419","textAlignment":"center","fontWeight":null,"fontStyle":null,"fontSize":"14px","textDecoration":null,"text":"You
-  are accessing a U.S. Government (USG) Information System (IS) that is provided for
-  USG-authorized use only.\\nBy using this IS (which includes any device attached
-  to this IS), you consent to the following conditions: The USG routinely intercepts
-  and monitors communications on this IS for purposes including, but not limited to,
-  penetration testing, COMSEC monitoring, network operations and defense, personnel
-  misconduct (PM), law enforcement (LE), and counterintelligence (CI) investigations.
-  At any time, the USG may inspect and seize data stored on this IS. Communications
-  using, or data stored on, this IS are not private, are subject to routine monitoring,
-  interception, and search, and may be disclosed or used for any USG-authorized purpose.
-  This IS includes security measures (e.g., authentication and access controls) to
-  protect USG interests--not for your personal benefit or privacy. Notwithstanding
-  the above, using this IS does not constitute consent to PM, LE or CI investigative
-  searching or monitoring of the content of privileged communications, or work product,
-  related to personal representation or services by attorneys, psychotherapists, or
-  clergy, and their assistants. Such communications and work product are private and
-  confidential.\\n See User Agreement for details.","button":"Accept"},"showHeader":"true","showFooter":"true","showConsent":"true"}'
