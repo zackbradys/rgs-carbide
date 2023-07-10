@@ -26,6 +26,13 @@ spec:
   branch: main
   paths:
     - /fleet/carbide/ui-plugin-operator
+  targets:
+    - clusterSelector:
+        matchExpressions:
+          - key: provider.cattle.io
+            operator: NotIn
+            values:
+              - harvester
 ---
 apiVersion: fleet.cattle.io/v1alpha1
 kind: GitRepo
@@ -37,6 +44,13 @@ spec:
   branch: main
   paths:
     - /fleet/carbide/ui-plugin-operator-crd
+  targets:
+    - clusterSelector:
+        matchExpressions:
+          - key: provider.cattle.io
+            operator: NotIn
+            values:
+              - harvester
 ---
 apiVersion: fleet.cattle.io/v1alpha1
 kind: GitRepo
@@ -48,6 +62,13 @@ spec:
   branch: main
   paths:
     - /fleet/carbide/rancher-monitoring-crd
+  targets:
+    - clusterSelector:
+        matchExpressions:
+          - key: provider.cattle.io
+            operator: NotIn
+            values:
+              - harvester
 ---
 apiVersion: fleet.cattle.io/v1alpha1
 kind: GitRepo
@@ -59,6 +80,13 @@ spec:
   branch: main
   paths:
     - /fleet/carbide/rancher-monitoring
+  targets:
+    - clusterSelector:
+        matchExpressions:
+          - key: provider.cattle.io
+            operator: NotIn
+            values:
+              - harvester
 ---
 apiVersion: fleet.cattle.io/v1alpha1
 kind: GitRepo
@@ -70,6 +98,13 @@ spec:
   branch: main
   paths:
     - /fleet/carbide/rancher-cis-benchmark-crd
+  targets:
+    - clusterSelector:
+        matchExpressions:
+          - key: provider.cattle.io
+            operator: NotIn
+            values:
+              - harvester
 ---
 apiVersion: fleet.cattle.io/v1alpha1
 kind: GitRepo
@@ -81,6 +116,13 @@ spec:
   branch: main
   paths:
     - /fleet/carbide/rancher-cis-benchmark
+  targets:
+    - clusterSelector:
+        matchExpressions:
+          - key: provider.cattle.io
+            operator: NotIn
+            values:
+              - harvester
 ---
 apiVersion: fleet.cattle.io/v1alpha1
 kind: GitRepo
@@ -92,6 +134,13 @@ spec:
   branch: main
   paths:
     - /fleet/carbide/airgapped-docs
+  targets:
+    - clusterSelector:
+        matchExpressions:
+          - key: provider.cattle.io
+            operator: NotIn
+            values:
+              - harvester
 ---
 apiVersion: fleet.cattle.io/v1alpha1
 kind: GitRepo
@@ -103,6 +152,13 @@ spec:
   branch: main
   paths:
     - /fleet/carbide/stigatron-ui
+  targets:
+    - clusterSelector:
+        matchExpressions:
+          - key: provider.cattle.io
+            operator: NotIn
+            values:
+              - harvester
 ---
 apiVersion: fleet.cattle.io/v1alpha1
 kind: GitRepo
@@ -114,6 +170,13 @@ spec:
   branch: main
   paths:
     - /fleet/carbide/stigatron
+  targets:
+    - clusterSelector:
+        matchExpressions:
+          - key: provider.cattle.io
+            operator: NotIn
+            values:
+              - harvester
 ---
 #apiVersion: fleet.cattle.io/v1alpha1
 #kind: GitRepo
@@ -125,6 +188,13 @@ spec:
 #  branch: main
 #  paths:
 #    - /fleet/carbide/rancher
+#  targets:
+#    - clusterSelector:
+#        matchExpressions:
+#          - key: provider.cattle.io
+#            operator: NotIn
+#            values:
+#              - harvester
 #---
 ### Configure Classification Banners
 apiVersion: management.cattle.io/v3
