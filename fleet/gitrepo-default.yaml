@@ -135,12 +135,8 @@ spec:
   paths:
     - /fleet/carbide/airgapped-docs
   targets:
-    - clusterSelector:
-        matchExpressions:
-          - key: provider.cattle.io
-            operator: NotIn
-            values:
-              - harvester
+    - name: downstream-clusters
+    - clusterSelector: {}
 ---
 apiVersion: fleet.cattle.io/v1alpha1
 kind: GitRepo
