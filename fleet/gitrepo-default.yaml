@@ -18,8 +18,10 @@ spec:
   paths:
     - /fleet/carbide/rancher-cis-benchmark-crd
   targets:
-    - name: downstream-clusters
-    - clusterSelector: {}
+  - name: downstream-clusters
+    clusterSelector:
+      matchLabels:
+        carbide: true
 ---
 apiVersion: fleet.cattle.io/v1alpha1
 kind: GitRepo
@@ -32,8 +34,10 @@ spec:
   paths:
     - /fleet/carbide/rancher-cis-benchmark
   targets:
-    - name: downstream-clusters
-    - clusterSelector: {}
+  - name: downstream-clusters
+    clusterSelector:
+      matchLabels:
+        carbide: true
 ---
 apiVersion: fleet.cattle.io/v1alpha1
 kind: GitRepo
@@ -46,5 +50,7 @@ spec:
   paths:
     - /fleet/carbide/stigatron
   targets:
-    - name: downstream-clusters
-    - clusterSelector: {}
+  - name: downstream-clusters
+    clusterSelector:
+      matchLabels:
+        carbide: true

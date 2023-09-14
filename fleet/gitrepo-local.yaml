@@ -26,6 +26,11 @@ spec:
   branch: main
   paths:
     - /fleet/carbide/ui-plugin-operator
+  targets:
+  - name: local-cluster
+    clusterSelector:
+      matchLabels:
+        carbide: true
 ---
 apiVersion: fleet.cattle.io/v1alpha1
 kind: GitRepo
@@ -37,6 +42,11 @@ spec:
   branch: main
   paths:
     - /fleet/carbide/ui-plugin-operator-crd
+  targets:
+  - name: local-cluster
+    clusterSelector:
+      matchLabels:
+        carbide: true
 ---
 apiVersion: fleet.cattle.io/v1alpha1
 kind: GitRepo
@@ -48,6 +58,11 @@ spec:
   branch: main
   paths:
     - /fleet/carbide/rancher-cis-benchmark-crd
+  targets:
+  - name: local-cluster
+    clusterSelector:
+      matchLabels:
+        carbide: true
 ---
 apiVersion: fleet.cattle.io/v1alpha1
 kind: GitRepo
@@ -59,6 +74,11 @@ spec:
   branch: main
   paths:
     - /fleet/carbide/rancher-cis-benchmark
+  targets:
+  - name: local-cluster
+    clusterSelector:
+      matchLabels:
+        carbide: true
 ---
 apiVersion: fleet.cattle.io/v1alpha1
 kind: GitRepo
@@ -70,6 +90,11 @@ spec:
   branch: main
   paths:
     - /fleet/carbide/airgapped-docs
+  targets:
+  - name: local-cluster
+    clusterSelector:
+      matchLabels:
+        carbide: true
 ---
 apiVersion: fleet.cattle.io/v1alpha1
 kind: GitRepo
@@ -81,6 +106,11 @@ spec:
   branch: main
   paths:
     - /fleet/carbide/stigatron-ui
+  targets:
+  - name: local-cluster
+    clusterSelector:
+      matchLabels:
+        carbide: true
 ---
 apiVersion: fleet.cattle.io/v1alpha1
 kind: GitRepo
@@ -92,17 +122,11 @@ spec:
   branch: main
   paths:
     - /fleet/carbide/stigatron
----
-apiVersion: fleet.cattle.io/v1alpha1
-kind: GitRepo
-metadata:
-  name: classification
-  namespace: fleet-local
-spec:
-  repo: https://github.com/zackbradys/rgs-carbide
-  branch: main
-  paths:
-    - /fleet/classification
+  targets:
+  - name: local-cluster
+    clusterSelector:
+      matchLabels:
+        carbide: true
 ---
 #apiVersion: fleet.cattle.io/v1alpha1
 #kind: GitRepo
