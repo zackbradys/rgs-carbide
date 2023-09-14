@@ -10,34 +10,6 @@ spec:
 apiVersion: fleet.cattle.io/v1alpha1
 kind: GitRepo
 metadata:
-  name: monitoring-crd
-  namespace: fleet-default
-spec:
-  repo: https://github.com/zackbradys/rgs-carbide
-  branch: main
-  paths:
-    - /fleet/carbide/rancher-monitoring-crd
-  targets:
-    - name: downstream-clusters
-    - clusterSelector: {}
----
-apiVersion: fleet.cattle.io/v1alpha1
-kind: GitRepo
-metadata:
-  name: monitoring
-  namespace: fleet-default
-spec:
-  repo: https://github.com/zackbradys/rgs-carbide
-  branch: main
-  paths:
-    - /fleet/carbide/rancher-monitoring
-  targets:
-    - name: downstream-clusters
-    - clusterSelector: {}
----
-apiVersion: fleet.cattle.io/v1alpha1
-kind: GitRepo
-metadata:
   name: benchmark-crd
   namespace: fleet-default
 spec:
