@@ -93,6 +93,17 @@ spec:
   paths:
     - /fleet/carbide/stigatron
 ---
+apiVersion: fleet.cattle.io/v1alpha1
+kind: GitRepo
+metadata:
+  name: classification
+  namespace: fleet-local
+spec:
+  repo: https://github.com/zackbradys/rgs-carbide
+  branch: main
+  paths:
+    - /fleet/classification
+---
 #apiVersion: fleet.cattle.io/v1alpha1
 #kind: GitRepo
 #metadata:

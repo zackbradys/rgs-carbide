@@ -10,17 +10,9 @@ spec:
 EOF
 
 ### Create Kubernetes Namespaces
-kubectl create namespace cattle-monitoring-system
 kubectl create namespace cis-operator-system
 kubectl create namespace carbide-docs-system
 kubectl create namespace carbide-stigatron-system
-
-### Install Rancher Monitoring and CRD
-helm upgrade -i rancher-monitoring-crd rancher-charts/rancher-monitoring-crd -n cattle-monitoring-system --version=102.0.1+up40.1.2 --set global.cattle.systemDefaultRegistry=$CarbideRegistry
-
-sleep 10
-
-helm upgrade -i rancher-monitoring rancher-charts/rancher-monitoring -n cattle-monitoring-system --version=102.0.1+up40.1.2 --set global.cattle.systemDefaultRegistry=$CarbideRegistry
 
 ### Install CIS Benchmarks and CRD
 helm upgrade -i rancher-cis-benchmark-crd rancher-charts/rancher-cis-benchmark-crd -n cis-operator-system --version=4.0.0 --set global.cattle.url=https://rancher.$DOMAIN --set global.cattle.systemDefaultRegistry=$CarbideRegistry
