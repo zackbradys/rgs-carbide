@@ -27,10 +27,10 @@ spec:
   paths:
     - /fleet/carbide/ui-plugin-operator
   targets:
-  - name: local-cluster
+  - name: monitoring
     clusterSelector:
       matchLabels:
-        carbide: true
+        carbide: enabled
 ---
 apiVersion: fleet.cattle.io/v1alpha1
 kind: GitRepo
@@ -43,10 +43,10 @@ spec:
   paths:
     - /fleet/carbide/ui-plugin-operator-crd
   targets:
-  - name: local-cluster
+  - name: monitoring
     clusterSelector:
       matchLabels:
-        carbide: true
+        carbide: enabled
 ---
 apiVersion: fleet.cattle.io/v1alpha1
 kind: GitRepo
@@ -59,10 +59,10 @@ spec:
   paths:
     - /fleet/carbide/rancher-cis-benchmark-crd
   targets:
-  - name: local-cluster
+  - name: monitoring
     clusterSelector:
       matchLabels:
-        carbide: true
+        carbide: enabled
 ---
 apiVersion: fleet.cattle.io/v1alpha1
 kind: GitRepo
@@ -75,10 +75,10 @@ spec:
   paths:
     - /fleet/carbide/rancher-cis-benchmark
   targets:
-  - name: local-cluster
+  - name: monitoring
     clusterSelector:
       matchLabels:
-        carbide: true
+        carbide: enabled
 ---
 apiVersion: fleet.cattle.io/v1alpha1
 kind: GitRepo
@@ -91,10 +91,10 @@ spec:
   paths:
     - /fleet/carbide/airgapped-docs
   targets:
-  - name: local-cluster
+  - name: monitoring
     clusterSelector:
       matchLabels:
-        carbide: true
+        carbide: enabled
 ---
 apiVersion: fleet.cattle.io/v1alpha1
 kind: GitRepo
@@ -107,10 +107,10 @@ spec:
   paths:
     - /fleet/carbide/stigatron-ui
   targets:
-  - name: local-cluster
+  - name: monitoring
     clusterSelector:
       matchLabels:
-        carbide: true
+        carbide: enabled
 ---
 apiVersion: fleet.cattle.io/v1alpha1
 kind: GitRepo
@@ -123,10 +123,10 @@ spec:
   paths:
     - /fleet/carbide/stigatron
   targets:
-  - name: local-cluster
+  - name: monitoring
     clusterSelector:
       matchLabels:
-        carbide: true
+        carbide: enabled
 ---
 #apiVersion: fleet.cattle.io/v1alpha1
 #kind: GitRepo
@@ -138,6 +138,11 @@ spec:
 #  branch: main
 #  paths:
 #    - /fleet/carbide/rancher
+#  targets:
+#  - name: monitoring
+#    clusterSelector:
+#      matchLabels:
+#        carbide: enabled
 ---
 ### Add Classification Banners
 apiVersion: management.cattle.io/v3
