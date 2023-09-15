@@ -1,4 +1,3 @@
 global:
   cattle:
     systemDefaultRegistry: rgcrprod.azurecr.us
-    url: https://rancher.rancherfederal.io
