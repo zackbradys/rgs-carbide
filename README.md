@@ -15,7 +15,7 @@ contact: zack.brady@ranchergovernment.com
 
 ## About Me
 A little bit Zack Brady, his history, and what he's done in the industry.
-- DOD/IC Contractor
+- Former Contractor
 - U.S. Military Veteran
 - Open-Source Contributor
 - Built and Exited a Digital Firm
