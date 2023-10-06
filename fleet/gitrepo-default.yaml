@@ -1,12 +1,3 @@
-### Add Rancher Government Carbide Chart Repo
-apiVersion: catalog.cattle.io/v1
-kind: ClusterRepo
-metadata:
-  name: carbide-charts
-spec:
-  gitBranch: main
-  gitRepo: https://github.com/rancherfederal/carbide-charts
----
 apiVersion: fleet.cattle.io/v1alpha1
 kind: GitRepo
 metadata:
@@ -54,3 +45,12 @@ spec:
     clusterSelector:
       matchLabels:
         carbide: enabled
+---
+### Add Rancher Government Carbide Chart Repo
+apiVersion: catalog.cattle.io/v1
+kind: ClusterRepo
+metadata:
+  name: carbide-charts
+spec:
+  gitBranch: main
+  gitRepo: https://github.com/rancherfederal/carbide-charts
