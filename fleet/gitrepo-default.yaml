@@ -46,6 +46,24 @@ spec:
       matchLabels:
         carbide: enabled
 ---
+### Add Rancher Extensions Chart Repo
+apiVersion: catalog.cattle.io/v1
+kind: ClusterRepo
+metadata:
+  name: rancher-extensions
+spec:
+  gitBranch: main
+  gitRepo: https://github.com/rancher/ui-plugin-charts
+---
+### Add Rancher Partner Extensions Chart Repo
+apiVersion: catalog.cattle.io/v1
+kind: ClusterRepo
+metadata:
+  name: rancher-partner-extensions
+spec:
+  gitBranch: main
+  gitRepo: https://github.com/rancher/partner-extensions
+---
 ### Add Rancher Government Carbide Chart Repo
 apiVersion: catalog.cattle.io/v1
 kind: ClusterRepo
