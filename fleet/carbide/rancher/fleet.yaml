@@ -1,9 +1,0 @@
-defaultNamespace: cattle-system
-
-helm:
-  releaseName: rancher
-  repo: https://rancherfederal.github.io/carbide-charts
-  chart: rancher
-  version: 2.7.6
-  valuesFiles:
-    - rancher-values.yaml
