@@ -1,15 +1,27 @@
-### Enable Extensions
+### Add Rancher Extensions Chart Repo
 kubectl apply -f - <<EOF
-### Enable Extensions
 apiVersion: catalog.cattle.io/v1
 kind: ClusterRepo
 metadata:
-  name: rancher-ui-plugins
+  name: rancher-extensions
 spec:
   gitBranch: main
   gitRepo: https://github.com/rancher/ui-plugin-charts
----
-### Add Carbide Charts
+EOF
+
+### Add Rancher Partner Extensions Chart Repo
+kubectl apply -f - <<EOF
+apiVersion: catalog.cattle.io/v1
+kind: ClusterRepo
+metadata:
+  name: rancher-partner-extensions
+spec:
+  gitBranch: main
+  gitRepo: https://github.com/rancher/partner-extensions
+EOF
+
+### Add Rancher Government Carbide Chart Repo
+kubectl apply -f - <<EOF
 apiVersion: catalog.cattle.io/v1
 kind: ClusterRepo
 metadata:
@@ -17,8 +29,10 @@ metadata:
 spec:
   gitBranch: main
   gitRepo: https://github.com/rancherfederal/carbide-charts
----
-### Configure Classification Banners
+EOF
+
+### Add Classification Banners
+kubectl apply -f - <<EOF
 apiVersion: management.cattle.io/v3
 customized: false
 default: '{}'
@@ -53,18 +67,18 @@ kubectl create namespace cattle-ui-plugin-system
 kubectl create namespace cis-operator-system
 
 ### Install UI Plugin Operator and CRD
-helm upgrade -i ui-plugin-operator rancher-charts/ui-plugin-operator -n cattle-ui-plugin-system --version=102.0.0+up0.2.0 --set global.cattle.systemDefaultRegistry=$CarbideRegistry
+helm upgrade -i ui-plugin-operator rancher-charts/ui-plugin-operator -n cattle-ui-plugin-system --version=102.0.2+up0.2.1 --set global.cattle.systemDefaultRegistry=$CarbideRegistry
 
 sleep 10
 
-helm upgrade -i ui-plugin-operator-crd rancher-charts/ui-plugin-operator-crd -n cattle-ui-plugin-system --version=102.0.0+up0.2.0 --set global.cattle.systemDefaultRegistry=$CarbideRegistry
+helm upgrade -i ui-plugin-operator-crd rancher-charts/ui-plugin-operator-crd -n cattle-ui-plugin-system --version=102.0.2+up0.2.1 --set global.cattle.systemDefaultRegistry=$CarbideRegistry
 
 ### Install CIS Benchmarks and CRD
-helm upgrade -i rancher-cis-benchmark-crd rancher-charts/rancher-cis-benchmark-crd -n cis-operator-system --version=4.0.0 --set global.cattle.url=https://rancher.$DOMAIN --set global.cattle.systemDefaultRegistry=$CarbideRegistry
+helm upgrade -i rancher-cis-benchmark-crd rancher-charts/rancher-cis-benchmark-crd -n cis-operator-system --version=4.2.0 --set global.cattle.url=https://rancher.$DOMAIN --set global.cattle.systemDefaultRegistry=$CarbideRegistry
 
 sleep 10
 
-helm upgrade -i rancher-cis-benchmark rancher-charts/rancher-cis-benchmark -n cis-operator-system --version=4.0.0 --set global.cattle.url=https://rancher.$DOMAIN --set global.cattle.systemDefaultRegistry=$CarbideRegistry
+helm upgrade -i rancher-cis-benchmark rancher-charts/rancher-cis-benchmark -n cis-operator-system --version=4.2.0 --set global.cattle.url=https://rancher.$DOMAIN --set global.cattle.systemDefaultRegistry=$CarbideRegistry
 
 sleep 30
 
@@ -79,8 +93,8 @@ helm repo add carbide-charts https://rancherfederal.github.io/carbide-charts
 helm repo add kubewarden https://charts.kubewarden.io
 helm repo update
 
-helm upgrade -i airgapped-docs carbide-charts/airgapped-docs -n carbide-docs-system --set global.cattle.systemDefaultRegistry=$CarbideRegistry
+helm upgrade -i airgapped-docs carbide-charts/airgapped-docs -n carbide-docs-system --version=0.1.44 --set global.cattle.systemDefaultRegistry=$CarbideRegistry
 
-helm upgrade -i stigatron-ui carbide-charts/stigatron-ui -n carbide-stigatron-system --set global.cattle.systemDefaultRegistry=$CarbideRegistry
+helm upgrade -i stigatron-ui carbide-charts/stigatron-ui -n carbide-stigatron-system --version=0.1.22 --set global.cattle.systemDefaultRegistry=$CarbideRegistry
 
-helm upgrade -i stigatron carbide-charts/stigatron -n carbide-stigatron-system --set global.cattle.systemDefaultRegistry=$CarbideRegistry --set heimdall2.heimdall.rcidf.registry=$CarbideRegistry --set heimdall2.global.cattle.systemDefaultRegistry=$CarbideRegistry
+helm upgrade -i stigatron carbide-charts/stigatron -n carbide-stigatron-system --version=0.1.46 --set global.cattle.systemDefaultRegistry=$CarbideRegistry --set heimdall2.heimdall.rcidf.registry=$CarbideRegistry --set heimdall2.global.cattle.systemDefaultRegistry=$CarbideRegistry

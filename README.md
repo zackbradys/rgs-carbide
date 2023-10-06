@@ -34,6 +34,3 @@ View the [README](fleet/README.md) for deployment information.
 
 ## Shell Deployment
 View the [README](shell/README.md) for deployment information.
-
-## K8S YAML Deployment
-WIP WIP WIP
