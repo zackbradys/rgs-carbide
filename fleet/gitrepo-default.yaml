@@ -9,7 +9,7 @@ spec:
   paths:
     - /fleet/carbide/rancher-cis-benchmark-crd
   targets:
-  - name: monitoring
+  - name: carbide
     clusterSelector:
       matchLabels:
         carbide: enabled
@@ -25,7 +25,7 @@ spec:
   paths:
     - /fleet/carbide/rancher-cis-benchmark
   targets:
-  - name: monitoring
+  - name: carbide
     clusterSelector:
       matchLabels:
         carbide: enabled
@@ -41,7 +41,7 @@ spec:
   paths:
     - /fleet/carbide/stigatron
   targets:
-  - name: monitoring
+  - name: carbide
     clusterSelector:
       matchLabels:
         carbide: enabled
