@@ -4,6 +4,6 @@ helm:
   releaseName: airgapped-docs
   repo: https://rancherfederal.github.io/carbide-charts
   chart: airgapped-docs
-  version: 0.1.44
+  version: 0.1.47
   valuesFiles:
     - airgapped-docs-values.yaml

@@ -4,7 +4,7 @@ helm:
   releaseName: stigatron-ui
   repo: https://rancherfederal.github.io/carbide-charts
   chart: stigatron-ui
-  version: 0.1.22
+  version: 0.2.3
   valuesFiles:
     - stigatron-ui-values.yaml
 

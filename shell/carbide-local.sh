@@ -67,18 +67,18 @@ kubectl create namespace cattle-ui-plugin-system
 kubectl create namespace cis-operator-system
 
 ### Install UI Plugin Operator and CRD
-helm upgrade -i ui-plugin-operator rancher-charts/ui-plugin-operator -n cattle-ui-plugin-system --version=102.0.2+up0.2.1 --set global.cattle.systemDefaultRegistry=$CarbideRegistry
+helm upgrade -i ui-plugin-operator rancher-charts/ui-plugin-operator -n cattle-ui-plugin-system --version=103.0.1+up0.2.1 --set global.cattle.systemDefaultRegistry=$CarbideRegistry
 
 sleep 10
 
-helm upgrade -i ui-plugin-operator-crd rancher-charts/ui-plugin-operator-crd -n cattle-ui-plugin-system --version=102.0.2+up0.2.1 --set global.cattle.systemDefaultRegistry=$CarbideRegistry
+helm upgrade -i ui-plugin-operator-crd rancher-charts/ui-plugin-operator-crd -n cattle-ui-plugin-system --version=103.0.1+up0.2.1 --set global.cattle.systemDefaultRegistry=$CarbideRegistry
 
 ### Install CIS Benchmarks and CRD
-helm upgrade -i rancher-cis-benchmark-crd rancher-charts/rancher-cis-benchmark-crd -n cis-operator-system --version=4.2.0 --set global.cattle.url=https://rancher.$DOMAIN --set global.cattle.systemDefaultRegistry=$CarbideRegistry
+helm upgrade -i rancher-cis-benchmark-crd rancher-charts/rancher-cis-benchmark-crd -n cis-operator-system --version=5.0.0 --set global.cattle.url=https://rancher.$DOMAIN --set global.cattle.systemDefaultRegistry=$CarbideRegistry
 
 sleep 10
 
-helm upgrade -i rancher-cis-benchmark rancher-charts/rancher-cis-benchmark -n cis-operator-system --version=4.2.0 --set global.cattle.url=https://rancher.$DOMAIN --set global.cattle.systemDefaultRegistry=$CarbideRegistry
+helm upgrade -i rancher-cis-benchmark rancher-charts/rancher-cis-benchmark -n cis-operator-system --version=5.0.0 --set global.cattle.url=https://rancher.$DOMAIN --set global.cattle.systemDefaultRegistry=$CarbideRegistry
 
 sleep 30
 
@@ -93,8 +93,8 @@ helm repo add carbide-charts https://rancherfederal.github.io/carbide-charts
 helm repo add kubewarden https://charts.kubewarden.io
 helm repo update
 
-helm upgrade -i airgapped-docs carbide-charts/airgapped-docs -n carbide-docs-system --version=0.1.44 --set global.cattle.systemDefaultRegistry=$CarbideRegistry
+helm upgrade -i airgapped-docs carbide-charts/airgapped-docs -n carbide-docs-system --version=0.1.47 --set global.cattle.systemDefaultRegistry=$CarbideRegistry
 
-helm upgrade -i stigatron-ui carbide-charts/stigatron-ui -n carbide-stigatron-system --version=0.1.22 --set global.cattle.systemDefaultRegistry=$CarbideRegistry
+helm upgrade -i stigatron-ui carbide-charts/stigatron-ui -n carbide-stigatron-system --version=0.2.3 --set global.cattle.systemDefaultRegistry=$CarbideRegistry
 
-helm upgrade -i stigatron carbide-charts/stigatron -n carbide-stigatron-system --version=0.1.46 --set global.cattle.systemDefaultRegistry=$CarbideRegistry --set heimdall2.heimdall.rcidf.registry=$CarbideRegistry --set heimdall2.global.cattle.systemDefaultRegistry=$CarbideRegistry
+helm upgrade -i stigatron carbide-charts/stigatron -n carbide-stigatron-system --version=0.2.4 --set global.cattle.systemDefaultRegistry=$CarbideRegistry --set heimdall2.heimdall.rcidf.registry=$CarbideRegistry --set heimdall2.global.cattle.systemDefaultRegistry=$CarbideRegistry
