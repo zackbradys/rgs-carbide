@@ -8,3 +8,7 @@ heimdall2:
   heimdall:
     rcidf:
       registry: rgcrprod.azurecr.us
+nats:
+  global:
+    image:
+      registry: docker.io
