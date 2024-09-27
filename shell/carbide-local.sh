@@ -95,6 +95,6 @@ helm repo update
 
 helm upgrade -i airgapped-docs carbide-charts/airgapped-docs -n carbide-docs-system --version=0.1.51 --set global.cattle.systemDefaultRegistry=$CarbideRegistry
 
-helm upgrade -i stigatron-ui carbide-charts/stigatron-ui -n carbide-stigatron-system --version=0.2.3 --set global.cattle.systemDefaultRegistry=$CarbideRegistry
+helm upgrade -i stigatron-ui carbide-charts/stigatron-ui -n carbide-stigatron-system --version=0.3.0 --set global.cattle.systemDefaultRegistry=$CarbideRegistry
 
 helm upgrade -i stigatron carbide-charts/stigatron -n carbide-stigatron-system --version=0.3.0 --set global.cattle.systemDefaultRegistry=$CarbideRegistry --set heimdall2.heimdall.rcidf.registry=$CarbideRegistry --set heimdall2.global.cattle.systemDefaultRegistry=$CarbideRegistry
