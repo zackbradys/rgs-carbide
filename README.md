@@ -16,7 +16,7 @@ contact: zack.brady@ranchergovernment.com
 
 ## About Me
 
-A little bit Zack Brady, his history, and what he's done in the industry.
+A little bit about me and my history in the industry. If you have any questions, please reach out to me at zbrady@zackbrady.com!
 
 - Former Contractor
 - U.S. Military Reservist
