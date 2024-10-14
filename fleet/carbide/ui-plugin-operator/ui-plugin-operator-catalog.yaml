@@ -1,0 +1,44 @@
+# apiVersion: apps/v1
+# kind: Deployment
+# metadata:
+#   name: ui-plugin-catalog
+#   namespace: cattle-ui-plugin-system
+#   labels:
+#     catalog.cattle.io/ui-extensions-catalog-image: ui-plugin-catalog
+# spec:
+#   replicas: 1
+#   selector:
+#     matchLabels:
+#       catalog.cattle.io/ui-extensions-catalog-image: ui-plugin-catalog
+#   template:
+#     metadata:
+#       namespace: cattle-ui-plugin-system
+#       labels:
+#         catalog.cattle.io/ui-extensions-catalog-image: ui-plugin-catalog
+#     spec:
+#       containers:
+#       - name: ui-plugin-catalog
+#         image: rgcrprod.azurecr.us/rancher/ui-plugin-catalog:2.1.0
+#         imagePullPolicy: Always
+# ---
+# apiVersion: v1
+# kind: Service
+# metadata:
+#   name: ui-plugin-catalog-svc
+#   namespace: cattle-ui-plugin-system
+# spec:
+#   ports:
+#     - name: catalog-svc-port
+#       port: 8080
+#       protocol: TCP
+#       targetPort: 8080
+#   selector:
+#     catalog.cattle.io/ui-extensions-catalog-image: ui-plugin-catalog
+#   type: ClusterIP
+# ---
+# apiVersion: catalog.cattle.io/v1
+# kind: ClusterRepo
+# metadata:
+#   name: rancher-extensions
+# spec:
+#   url: http://ui-plugin-catalog-svc.cattle-ui-plugin-system:8080
