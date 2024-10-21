@@ -18,7 +18,7 @@
 #     spec:
 #       containers:
 #       - name: ui-plugin-catalog
-#         image: rgcrprod.azurecr.us/rancher/ui-plugin-catalog:2.1.0
+#         image: registry.ranchercarbide.dev/rancher/ui-plugin-catalog:2.1.0
 #         imagePullPolicy: Always
 # ---
 # apiVersion: v1

@@ -1,13 +1,13 @@
 global:
   cattle:
-    systemDefaultRegistry: rgcrprod.azurecr.us
+    systemDefaultRegistry: registry.ranchercarbide.dev
 heimdall2:
   global:
     cattle:
-      systemDefaultRegistry: rgcrprod.azurecr.us
+      systemDefaultRegistry: registry.ranchercarbide.dev
   heimdall:
     rcidf:
-      registry: rgcrprod.azurecr.us
+      registry: registry.ranchercarbide.dev
 nats:
   global:
     image:
