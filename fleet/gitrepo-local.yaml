@@ -1,38 +1,6 @@
 apiVersion: fleet.cattle.io/v1alpha1
 kind: GitRepo
 metadata:
-  name: ui-plugins
-  namespace: fleet-local
-spec:
-  repo: https://github.com/zackbradys/rgs-carbide
-  branch: main
-  paths:
-    - /fleet/carbide/ui-plugin-operator
-  targets:
-  - name: carbide
-    clusterSelector:
-      matchLabels:
-        carbide: enabled
----
-apiVersion: fleet.cattle.io/v1alpha1
-kind: GitRepo
-metadata:
-  name: ui-plugin-crd
-  namespace: fleet-local
-spec:
-  repo: https://github.com/zackbradys/rgs-carbide
-  branch: main
-  paths:
-    - /fleet/carbide/ui-plugin-operator-crd
-  targets:
-  - name: carbide
-    clusterSelector:
-      matchLabels:
-        carbide: enabled
----
-apiVersion: fleet.cattle.io/v1alpha1
-kind: GitRepo
-metadata:
   name: benchmark-crd
   namespace: fleet-local
 spec:

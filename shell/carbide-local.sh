@@ -63,15 +63,7 @@ helm repo add rancher-charts https://charts.rancher.io
 helm repo update
 
 ### Create Kubernetes Namespaces
-kubectl create namespace cattle-ui-plugin-system
 kubectl create namespace cis-operator-system
-
-### Install UI Plugin Operator and CRD
-helm upgrade -i ui-plugin-operator rancher-charts/ui-plugin-operator -n cattle-ui-plugin-system --version=103.0.2+up0.2.1 --set global.cattle.systemDefaultRegistry=$CarbideRegistry
-
-sleep 10
-
-helm upgrade -i ui-plugin-operator-crd rancher-charts/ui-plugin-operator-crd -n cattle-ui-plugin-system --version=103.0.2+up0.2.1 --set global.cattle.systemDefaultRegistry=$CarbideRegistry
 
 ### Install CIS Benchmarks and CRD
 helm upgrade -i rancher-cis-benchmark-crd rancher-charts/rancher-cis-benchmark-crd -n cis-operator-system --version=6.1.0 --set global.cattle.url=https://rancher.$DOMAIN --set global.cattle.systemDefaultRegistry=$CarbideRegistry

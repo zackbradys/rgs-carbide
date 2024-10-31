@@ -37,7 +37,6 @@ helm repo update
 
 ### Create Kubernetes Namespaces
 kubectl create namespace cis-operator-system
-kubectl create namespace carbide-docs-system
 kubectl create namespace carbide-stigatron-system
 
 ### Install CIS Benchmarks and CRD
