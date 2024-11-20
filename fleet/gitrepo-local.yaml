@@ -96,6 +96,54 @@ spec:
   gitBranch: main
   gitRepo: https://github.com/rancher/partner-extensions
 ---
+apiVersion: fleet.cattle.io/v1alpha1
+kind: GitRepo
+metadata:
+  name: neuvector-ui-extension
+  namespace: fleet-local
+spec:
+  repo: https://github.com/zackbradys/rgs-carbide
+  branch: main
+  paths:
+    - /fleet/carbide/neuvector-ui-extension
+  targets:
+  - name: neuvector-ui-extension
+    clusterSelector:
+      matchLabels:
+        ui-extensions: enabled
+---
+apiVersion: fleet.cattle.io/v1alpha1
+kind: GitRepo
+metadata:
+  name: elemental-ui-extension
+  namespace: fleet-local
+spec:
+  repo: https://github.com/zackbradys/rgs-carbide
+  branch: main
+  paths:
+    - /fleet/carbide/elemental-ui-extension
+  targets:
+  - name: elemental-ui-extension
+    clusterSelector:
+      matchLabels:
+        ui-extensions: enabled
+---
+apiVersion: fleet.cattle.io/v1alpha1
+kind: GitRepo
+metadata:
+  name: observability-ui-extension
+  namespace: fleet-local
+spec:
+  repo: https://github.com/zackbradys/rgs-carbide
+  branch: main
+  paths:
+    - /fleet/carbide/observability-ui-extension
+  targets:
+  - name: observability-ui-extension
+    clusterSelector:
+      matchLabels:
+        ui-extensions: enabled
+---
 ### Add Rancher Government Carbide Chart Repo
 apiVersion: catalog.cattle.io/v1
 kind: ClusterRepo
