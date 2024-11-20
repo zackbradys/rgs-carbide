@@ -2,9 +2,7 @@ defaultNamespace: cattle-ui-plugin-system
 
 helm:
   releaseName: neuvector-ui-extension
-  repo: https://github.com/rancher/ui-plugin-charts
-  path: charts/neuvector-ui-ext/2.0.0
-  chart: neuvector-ui-ext
+  chart: git://github.com/rancher/ui-plugin-charts//charts/neuvector-ui-ext/2.0.0
   version: 2.0.0
   valuesFiles:
     - neuvector-ui-extension-values.yaml
