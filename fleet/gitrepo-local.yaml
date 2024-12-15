@@ -115,6 +115,22 @@ spec:
 apiVersion: fleet.cattle.io/v1alpha1
 kind: GitRepo
 metadata:
+  name: kubewarden-ui-extension
+  namespace: fleet-local
+spec:
+  repo: https://github.com/zackbradys/rgs-carbide
+  branch: main
+  paths:
+    - /fleet/carbide/kubewarden-ui-extension
+  targets:
+  - name: kubewarden-ui-extension
+    clusterSelector:
+      matchLabels:
+        ui-extensions: enabled
+---
+apiVersion: fleet.cattle.io/v1alpha1
+kind: GitRepo
+metadata:
   name: elemental-ui-extension
   namespace: fleet-local
 spec:
