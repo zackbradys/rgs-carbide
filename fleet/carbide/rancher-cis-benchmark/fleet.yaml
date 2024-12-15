@@ -4,7 +4,7 @@ helm:
   releaseName: rancher-cis-benchmark
   repo: https://charts.rancher.io
   chart: rancher-cis-benchmark
-  version: 6.1.0
+  version: 6.4.0
   valuesFiles:
     - rancher-cis-benchmarks-values.yaml
 
