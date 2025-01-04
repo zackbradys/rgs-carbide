@@ -85,7 +85,7 @@ helm repo add carbide-charts https://rancherfederal.github.io/carbide-charts
 helm repo add kubewarden https://charts.kubewarden.io
 helm repo update
 
-helm upgrade -i airgapped-docs carbide-charts/airgapped-docs -n carbide-docs-system --version=0.1.53 --set global.cattle.systemDefaultRegistry=$CarbideRegistry
+helm upgrade -i airgapped-docs carbide-charts/airgapped-docs -n carbide-docs-system --version=0.1.54 --set global.cattle.systemDefaultRegistry=$CarbideRegistry
 
 helm upgrade -i stigatron-ui carbide-charts/stigatron-ui -n carbide-stigatron-system --version=0.3.0 --set global.cattle.systemDefaultRegistry=$CarbideRegistry
 
