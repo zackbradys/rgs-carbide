@@ -66,11 +66,11 @@ helm repo update
 kubectl create namespace cis-operator-system
 
 ### Install CIS Benchmarks and CRD
-helm upgrade -i rancher-cis-benchmark-crd rancher-charts/rancher-cis-benchmark-crd -n cis-operator-system --version=6.1.0 --set global.cattle.url=https://rancher.$DOMAIN --set global.cattle.systemDefaultRegistry=$CarbideRegistry
+helm upgrade -i rancher-cis-benchmark-crd rancher-charts/rancher-cis-benchmark-crd -n cis-operator-system --version=6.6.0 --set global.cattle.url=https://rancher.$DOMAIN --set global.cattle.systemDefaultRegistry=$CarbideRegistry
 
 sleep 10
 
-helm upgrade -i rancher-cis-benchmark rancher-charts/rancher-cis-benchmark -n cis-operator-system --version=6.1.0 --set global.cattle.url=https://rancher.$DOMAIN --set global.cattle.systemDefaultRegistry=$CarbideRegistry
+helm upgrade -i rancher-cis-benchmark rancher-charts/rancher-cis-benchmark -n cis-operator-system --version=6.6.0 --set global.cattle.url=https://rancher.$DOMAIN --set global.cattle.systemDefaultRegistry=$CarbideRegistry
 
 sleep 30
 
@@ -89,6 +89,6 @@ helm upgrade -i airgapped-docs carbide-charts/airgapped-docs -n carbide-docs-sys
 
 helm upgrade -i stigatron-ui carbide-charts/stigatron-ui -n carbide-stigatron-system --version=0.3.0 --set global.cattle.systemDefaultRegistry=$CarbideRegistry
 
-helm upgrade -i stigatron carbide-charts/stigatron -n carbide-stigatron-system --version=0.3.0 --set global.cattle.systemDefaultRegistry=$CarbideRegistry --set heimdall2.heimdall.rcidf.registry=$CarbideRegistry --set heimdall2.global.cattle.systemDefaultRegistry=$CarbideRegistry
+helm upgrade -i stigatron carbide-charts/stigatron -n carbide-stigatron-system --version=0.4.0 --set global.cattle.systemDefaultRegistry=$CarbideRegistry --set heimdall2.heimdall.rcidf.registry=$CarbideRegistry --set heimdall2.global.cattle.systemDefaultRegistry=$CarbideRegistry
 
 ### Install UI Extensions

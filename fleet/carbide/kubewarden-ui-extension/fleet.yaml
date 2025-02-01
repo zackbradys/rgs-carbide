@@ -3,6 +3,6 @@ defaultNamespace: cattle-ui-plugin-system
 helm:
   releaseName: obervability-ui-extension
   chart: git://github.com/rancher/ui-plugin-charts/tree/main/charts/kubewarden/2.1.0
-  version: 2.1.0
+  version: 3.0.2
   valuesFiles:
     - kubewarden-ui-extension-values.yaml
