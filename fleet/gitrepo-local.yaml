@@ -176,7 +176,7 @@ default: '{}'
 kind: Setting
 metadata:
   name: ui-banners
-value: '{"loginError":{"message":"","showMessage":"false"},"bannerHeader":{"background":"#007a33","color":"#ffffff","textAlignment":"center","fontWeight":null,"fontStyle":null,"fontSize":"14px","textDecoration":null,"text":"UNCLASSIFIED//FOUO"},"bannerFooter":{"background":"#007a33","color":"#ffffff","textAlignment":"center","fontWeight":null,"fontStyle":null,"fontSize":"14px","textDecoration":null,"text":"UNCLASSIFIED//FOUO"},"bannerConsent":{"background":"#eeeff4","color":"#141419","textAlignment":"center","fontWeight":null,"fontStyle":null,"fontSize":"14px","textDecoration":null,"text":"You
+value: '{"loginError":{"message":"","showMessage":"false"},"bannerHeader":{"background":"#007a33","color":"#ffffff","textAlignment":"center","fontWeight":null,"fontStyle":null,"fontSize":"14px","textDecoration":null,"text":"UNCLASSIFIED"},"bannerFooter":{"background":"#007a33","color":"#ffffff","textAlignment":"center","fontWeight":null,"fontStyle":null,"fontSize":"14px","textDecoration":null,"text":"UNCLASSIFIED"},"bannerConsent":{"background":"#eeeff4","color":"#141419","textAlignment":"center","fontWeight":null,"fontStyle":null,"fontSize":"14px","textDecoration":null,"text":"You
   are accessing a U.S. Government (USG) Information System (IS) that is provided for
   USG-authorized use only.\\nBy using this IS (which includes any device attached
   to this IS), you consent to the following conditions: The USG routinely intercepts
