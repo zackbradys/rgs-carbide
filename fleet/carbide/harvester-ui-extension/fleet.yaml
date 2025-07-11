@@ -3,6 +3,6 @@ defaultNamespace: cattle-ui-plugin-system
 helm:
   releaseName: harvester-ui-extension
   chart: git://github.com/rancher/ui-plugin-charts/tree/main/charts/harvester/1.0.3
-  version: 1.0.3
+  version: 1.5.1
   valuesFiles:
     - harvester-ui-extension-values.yaml
