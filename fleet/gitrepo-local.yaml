@@ -1,13 +1,13 @@
 apiVersion: fleet.cattle.io/v1alpha1
 kind: GitRepo
 metadata:
-  name: benchmark-crd
+  name: compliance-crd
   namespace: fleet-local
 spec:
   repo: https://github.com/zackbradys/rgs-carbide
   branch: main
   paths:
-    - /fleet/carbide/rancher-cis-benchmark-crd
+    - /fleet/carbide/rancher-compliance-crd
   targets:
   - name: carbide
     clusterSelector:
@@ -17,13 +17,13 @@ spec:
 apiVersion: fleet.cattle.io/v1alpha1
 kind: GitRepo
 metadata:
-  name: benchmark
+  name: compliance
   namespace: fleet-local
 spec:
   repo: https://github.com/zackbradys/rgs-carbide
   branch: main
   paths:
-    - /fleet/carbide/rancher-cis-benchmark
+    - /fleet/carbide/rancher-compliance
   targets:
   - name: carbide
     clusterSelector:
@@ -45,56 +45,6 @@ spec:
     clusterSelector:
       matchLabels:
         carbide: enabled
----
-apiVersion: fleet.cattle.io/v1alpha1
-kind: GitRepo
-metadata:
-  name: stigatron-ui
-  namespace: fleet-local
-spec:
-  repo: https://github.com/zackbradys/rgs-carbide
-  branch: main
-  paths:
-    - /fleet/carbide/stigatron-ui
-  targets:
-  - name: carbide
-    clusterSelector:
-      matchLabels:
-        carbide: enabled
----
-apiVersion: fleet.cattle.io/v1alpha1
-kind: GitRepo
-metadata:
-  name: stigatron
-  namespace: fleet-local
-spec:
-  repo: https://github.com/zackbradys/rgs-carbide
-  branch: main
-  paths:
-    - /fleet/carbide/stigatron
-  targets:
-  - name: carbide
-    clusterSelector:
-      matchLabels:
-        carbide: enabled
----
-### Add Rancher Extensions Chart Repo
-apiVersion: catalog.cattle.io/v1
-kind: ClusterRepo
-metadata:
-  name: rancher-extensions
-spec:
-  gitBranch: main
-  gitRepo: https://github.com/rancher/ui-plugin-charts
----
-### Add Rancher Partner Extensions Chart Repo
-apiVersion: catalog.cattle.io/v1
-kind: ClusterRepo
-metadata:
-  name: rancher-partner-extensions
-spec:
-  gitBranch: main
-  gitRepo: https://github.com/rancher/partner-extensions
 ---
 apiVersion: fleet.cattle.io/v1alpha1
 kind: GitRepo
@@ -159,6 +109,24 @@ spec:
     clusterSelector:
       matchLabels:
         ui-extensions: enabled
+---
+### Add Rancher Extensions Chart Repo
+apiVersion: catalog.cattle.io/v1
+kind: ClusterRepo
+metadata:
+  name: rancher-extensions
+spec:
+  gitBranch: main
+  gitRepo: https://github.com/rancher/ui-plugin-charts
+---
+### Add Rancher Partner Extensions Chart Repo
+apiVersion: catalog.cattle.io/v1
+kind: ClusterRepo
+metadata:
+  name: rancher-partner-extensions
+spec:
+  gitBranch: main
+  gitRepo: https://github.com/rancher/partner-extensions
 ---
 ### Add Rancher Government Carbide Chart Repo
 apiVersion: catalog.cattle.io/v1

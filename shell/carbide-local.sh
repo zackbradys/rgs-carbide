@@ -62,33 +62,31 @@ EOF
 helm repo add rancher-charts https://charts.rancher.io
 helm repo update
 
-### Create Kubernetes Namespaces
-kubectl create namespace cis-operator-system
+### Install Compliance Operator
+kubectl create namespace compliance-operator-system
 
-### Install CIS Benchmarks and CRD
-helm upgrade -i rancher-cis-benchmark-crd rancher-charts/rancher-cis-benchmark-crd -n cis-operator-system --version=106.0.0+up8.0.0 --set global.cattle.url=https://rancher.$DOMAIN --set global.cattle.systemDefaultRegistry=$CarbideRegistry
+kubectl label namespace compliance-operator-system pod-security.kubernetes.io/audit=privileged pod-security.kubernetes.io/audit-version=latest pod-security.kubernetes.io/enforce=privileged pod-security.kubernetes.io/enforce-version=latest pod-security.kubernetes.io/warn=privileged pod-security.kubernetes.io/warn-version=latest
+
+helm upgrade -i rancher-compliance-crd rancher-charts/rancher-compliance-crd -n compliance-operator-system --version=107.1.0+up1.1.0 --set global.cattle.url=https://rancher.$DOMAIN --set global.cattle.systemDefaultRegistry=$CarbideRegistry
 
 sleep 10
 
-helm upgrade -i rancher-cis-benchmark rancher-charts/rancher-cis-benchmark -n cis-operator-system --version=106.0.0+up8.0.0 --set global.cattle.url=https://rancher.$DOMAIN --set global.cattle.systemDefaultRegistry=$CarbideRegistry
+helm upgrade -i rancher-compliance rancher-charts/rancher-compliance -n compliance-operator-system --version=107.1.0+up1.1.0 --set global.cattle.url=https://rancher.$DOMAIN --set global.cattle.systemDefaultRegistry=$CarbideRegistry
 
 sleep 30
 
 ### Install Carbide License
-kubectl create namespace carbide-docs-system
 kubectl create namespace carbide-stigatron-system
 
 kubectl create secret generic stigatron-license -n carbide-stigatron-system --from-literal=license=$CarbideLicense
 
 ### Install Carbide Applications
+kubectl create namespace carbide-docs-system
+
 helm repo add carbide-charts https://rancherfederal.github.io/carbide-charts
 helm repo add kubewarden https://charts.kubewarden.io
 helm repo update
 
 helm upgrade -i airgapped-docs carbide-charts/airgapped-docs -n carbide-docs-system --version=0.1.54 --set global.cattle.systemDefaultRegistry=$CarbideRegistry
-
-helm upgrade -i stigatron-ui carbide-charts/stigatron-ui -n carbide-stigatron-system --version=0.3.0 --set global.cattle.systemDefaultRegistry=$CarbideRegistry
-
-helm upgrade -i stigatron carbide-charts/stigatron -n carbide-stigatron-system --version=0.4.1 --set global.cattle.systemDefaultRegistry=$CarbideRegistry --set heimdall2.heimdall.rcidf.registry=$CarbideRegistry --set heimdall2.global.cattle.systemDefaultRegistry=$CarbideRegistry
 
 ### Install UI Extensions
