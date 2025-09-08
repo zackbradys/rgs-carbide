@@ -6,7 +6,7 @@ helm:
   chart: rancher-compliance
   version: 107.1.0+up1.1.0
   valuesFiles:
-    - rancher-compliances-values.yaml
+    - rancher-compliance-values.yaml
 
 dependsOn:
-  - name: benchmark-crd-fleet-carbide-rancher-compliance-crd
+  - name: compliance-crd-fleet-carbide-rancher-compliance-crd

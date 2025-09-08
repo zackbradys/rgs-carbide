@@ -6,4 +6,4 @@ helm:
   chart: rancher-compliance-crd
   version: 107.1.0+up1.1.0
   valuesFiles:
-    - rancher-compliances-crd-values.yaml
+    - rancher-compliance-crd-values.yaml
