@@ -75,11 +75,6 @@ helm upgrade -i rancher-compliance rancher-charts/rancher-compliance -n complian
 
 sleep 30
 
-### Install Carbide License
-kubectl create namespace carbide-stigatron-system
-
-kubectl create secret generic stigatron-license -n carbide-stigatron-system --from-literal=license=$CarbideLicense
-
 ### Install Carbide Applications
 kubectl create namespace carbide-docs-system
 

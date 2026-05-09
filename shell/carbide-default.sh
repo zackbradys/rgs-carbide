@@ -35,11 +35,6 @@ EOF
 helm repo add rancher-charts https://charts.rancher.io
 helm repo update
 
-### Install Carbide License
-kubectl create namespace carbide-stigatron-system
-
-kubectl create secret generic stigatron-license -n carbide-stigatron-system --from-literal=license=$CarbideLicense
-
 ### Install Carbide Applications
 helm repo add carbide-charts https://rancherfederal.github.io/carbide-charts
 helm repo add kubewarden https://charts.kubewarden.io
