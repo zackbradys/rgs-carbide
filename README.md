@@ -8,21 +8,10 @@ contact: zack.brady@ranchergovernment.com
 
 ### Table of Contents
 
-- [About Me](#about-me)
 - [Introduction](#introduction)
 - [Fleet Deployment](#fleet-deployment)
 - [Shell Deployment](#shell-deployment)
 - [K8S YAML Deployment](#k8s-yaml-deployment)
-
-## About Me
-
-A little bit about me and my history in the industry. If you have any questions, please reach out to me at zhbrady@zackbrady.com!
-
-- Former Contractor
-- U.S. Military Reservist
-- Open-Source Contributor
-- Built and Exited a Digital Firm
-- Active Volunteer Firefighter/EMT
 
 ## Introduction
 
