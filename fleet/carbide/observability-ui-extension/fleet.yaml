@@ -1,8 +1,9 @@
 defaultNamespace: cattle-ui-plugin-system
 
 helm:
-  releaseName: obervability-ui-extension
-  chart: git://github.com/rancher/ui-plugin-charts/tree/main/charts/observability/2.2.2
+  releaseName: observability-ui-extension
+  repo: https://raw.githubusercontent.com/rancher/ui-plugin-charts/main
+  chart: observability
   version: 2.2.2
   valuesFiles:
     - observability-ui-extension-values.yaml

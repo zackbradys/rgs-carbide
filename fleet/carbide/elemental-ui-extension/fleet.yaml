@@ -2,7 +2,8 @@ defaultNamespace: cattle-ui-plugin-system
 
 helm:
   releaseName: elemental-ui-extension
-  chart: git://github.com/rancher/ui-plugin-charts/tree/main/charts/elemental/3.0.1
+  repo: https://raw.githubusercontent.com/rancher/ui-plugin-charts/main
+  chart: elemental
   version: 3.0.1
   valuesFiles:
     - elemental-ui-extension-values.yaml
